@@ -1,0 +1,10 @@
+data <- c(1,1,5,5,5,5,5,8,8,10,10,10,10,12,14,14,15,15,15,15,15,18,18,18,18,18,18,18,18,20,20,20,20,20,20,21,21,21,21,25,25,25,25,25,28,28,30,30,30)
+num_bins <- 3
+bin_width <- (max(data)-min(data)/num_bins)
+bins <- cut(data , breaks = num_bins)
+bin_means <- tapply(data, cut(data, breaks = seq(min(data),max(data)+bin_width , by = bin_width),labels = FALSE),mean)
+bin_boundaries <- levels(bins)
+bin_median <- tapply(data,bins,median)
+print(bin_means)
+print(bin_median)
+print(bin_boundaries)
